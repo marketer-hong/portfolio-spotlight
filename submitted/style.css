@@ -1,0 +1,148 @@
+/* ==========================================================================
+   1. 기본 변수 및 글로벌 스타일 (원본 사이트 동일)
+   ========================================================================== */
+:root {
+    --bg-color: #121212; 
+    --text-color: #F3F4F6; 
+    --sub-text-color: #A1A1AA; 
+    --accent-color: #3B82F6; 
+    --border-color: #2A2A2A; 
+    --card-bg: #1E1E1E; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ==========================================================================
+   2. 컴팩트 감사 카드 레이아웃
+   ========================================================================== */
+.thanks-wrapper {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.thanks-card {
+    width: 100%;
+    max-width: 520px;
+    padding: 48px 36px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* 자바스크립트 모션 적용을 위한 초기 진입 상태 */
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* JS로 활성화될 나타남 클래스 */
+.thanks-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 아이콘 스타일 */
+.icon-wrap {
+    color: var(--accent-color);
+    background-color: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+/* 헤드 카피 */
+.thanks-title {
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+    word-break: keep-all;
+}
+
+/* 서브 카피 */
+.thanks-desc {
+    font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+    color: var(--sub-text-color);
+    line-height: 1.65;
+    margin-bottom: 32px;
+    word-break: keep-all;
+}
+
+.btn-wrap {
+    width: 100%;
+}
+
+/* 버튼 스타일 (원본 사이트와 동일) */
+.btn {
+    display: inline-block;
+    padding: 14px 40px;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    border: 1px solid var(--text-color);
+    cursor: pointer;
+}
+
+.btn.outline {
+    background-color: transparent;
+    color: var(--text-color);
+}
+
+.btn.outline:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+/* 모바일 모드 대응 */
+@media (max-width: 480px) {
+    .thanks-card {
+        padding: 36px 24px;
+    }
+    
+    .icon-wrap {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 20px;
+    }
+
+    .icon-wrap svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
