@@ -1468,6 +1468,12 @@ h1 {
    9-3. 모바일 통합 최적화 (Max-width: 768px)
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
+    .fade-in {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    
     .mobile-br {
         display: inline;
     }
