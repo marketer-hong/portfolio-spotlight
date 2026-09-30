@@ -1521,7 +1521,7 @@ h1 {
     }
 
     .hero-title-sub {
-        font-size: clamp(1.1rem, 3.0vw, 1.5rem);
+        font-size: clamp(1.0rem, 3.0vw, 1.5rem);
         line-height: 1.7;
         margin-bottom: -10px;
     }
