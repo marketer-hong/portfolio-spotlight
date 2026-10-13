@@ -210,18 +210,16 @@ h1 {
 .hero-banner-image-container {
     width: 100%;
     max-width: 1200px;
-    margin-top: 10px;
+    margin-top: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    background-color: var(--card-bg);
     min-height: 280px;
     max-height: 380px;
 }
 
+.hero-banner-image-container picture,
 .hero-banner-image-container img {
     width: 100%;
     height: 100%;
@@ -355,6 +353,15 @@ h1 {
     color: var(--sub-text-color);
     font-size: 0.9rem;
     font-weight: 500;
+    overflow: hidden;
+}
+
+.img-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 5px;
 }
 
 .story-card-text-col {
@@ -801,7 +808,6 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 4px;
@@ -811,7 +817,6 @@ h1 {
     width: 100%;
     height: auto;
     object-fit: contain;
-    max-height: 320px;
 }
 
 .highlights-header-copy {
@@ -1274,6 +1279,124 @@ h1 {
     transform: translateY(0);
 }
 
+.contact-container {
+    display: grid;
+    grid-template-columns: 58% 38%;
+    gap: 40px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.contact-text-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-text-col .contact-copy {
+    margin-bottom: 0;
+}
+
+.contact-image-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.contact-banner-image-box {
+    width: 100%;
+    height: 100%;
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.contact-banner-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ==========================================================================
+   Contact 섹션 이미지 캐러셀 스타일
+   ========================================================================== */
+.contact-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    padding: 0 5px;
+}
+
+.contact-carousel-track-container {
+    overflow: hidden;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.contact-carousel-track {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+    width: 100%;
+}
+
+.contact-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-carousel-wrapper .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(18, 18, 18, 0.6);
+    border: none;
+    color: var(--text-color);
+    font-size: 1.3rem;
+    font-weight: 300;
+    cursor: pointer;
+    z-index: 10;
+    padding: 6px 10px;
+    border-radius: 4px;
+    transition: color 0.2s ease, background 0.2s ease;
+    opacity: 0.8;
+}
+
+.contact-carousel-wrapper .carousel-btn:hover {
+    color: var(--accent-color);
+    background: rgba(18, 18, 18, 0.85);
+    opacity: 1;
+}
+
+.contact-prev-btn { left: -12px; }
+.contact-next-btn { right: -12px; }
+
+.contact-carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 12px;
+}
+
+.contact-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-dot.active {
+    background-color: var(--accent-color);
+    transform: scale(1.2);
+}
+
 /* ==========================================================================
    8. 플로팅 문의 버튼 (Floating Contact Button - PC 기본)
    ========================================================================== */
@@ -1386,7 +1509,8 @@ h1 {
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
     .story-container,
-    .highlights-container {
+    .highlights-container,
+    .contact-container {
         grid-template-columns: 1fr;
         gap: 30px;
     }
@@ -1428,15 +1552,15 @@ h1 {
         padding-right: 0;
         text-align: center;
         align-items: center;
-        margin-top: 10px;
-        margin-bottom: -13px;
+        margin-top: 0px;
+        margin-bottom: 0px;
         gap: 10px;
     }
 
     .story-card-text-col p {
         text-align: center;
         line-height: 1.5;
-        margin-bottom: 0;
+        margin-bottom: 0px;
     }
 
     .carousel-btn {
@@ -1526,6 +1650,18 @@ h1 {
         margin-bottom: -10px;
     }
 
+    .hero-banner-image-container {
+        aspect-ratio: 1 / 1;
+        min-height: auto;
+        max-height: none;
+    }
+
+    .hero-banner-image-container picture,
+    .hero-banner-image-container img {
+        height: 100%;
+        max-height: none;
+    }
+
     .story-container {
         display: flex;
         flex-direction: column;
@@ -1535,6 +1671,13 @@ h1 {
 
     .story-carousel-wrapper {
         padding: 0;
+    }
+
+    .story-card-img-col {
+        width: 100%;
+        flex: 0 0 auto;
+        height: 320px;
+        min-height: 320px;
     }
 
     .principles-container {
@@ -1691,6 +1834,13 @@ h1 {
    9-4. 초소형 모바일 화면 (Max-width: 480px)
    -------------------------------------------------------------------------- */
 @media (max-width: 480px) {
+        .story-card-img-col {
+        width: 100%;
+        flex: 0 0 auto;
+        height: 280px;
+        min-height: 280px;
+    }
+    
     .contact-links {
         display: flex;
         flex-direction: column;
