@@ -250,4 +250,73 @@ document.addEventListener("DOMContentLoaded", function () {
         sections.forEach(section => spyObserver.observe(section));
     }
 
+    // --- Contact Section Carousel Slider ---
+    const contactTrack = document.querySelector(".contact-carousel-track");
+    const contactSlides = document.querySelectorAll(".contact-slide");
+    const contactPrevBtn = document.querySelector(".contact-prev-btn");
+    const contactNextBtn = document.querySelector(".contact-next-btn");
+    const contactDotsContainer = document.querySelector(".contact-carousel-dots");
+
+    if (contactTrack && contactSlides.length > 0) {
+        let contactCurrentIndex = 0;
+        const contactTotalSlides = contactSlides.length;
+
+        // 동적 인디케이터 Dot 생성
+        contactSlides.forEach((_, index) => {
+            const dot = document.createElement("div");
+            dot.classList.add("contact-dot");
+            if (index === 0) dot.classList.add("active");
+            dot.addEventListener("click", () => contactGoToSlide(index));
+            contactDotsContainer.appendChild(dot);
+        });
+
+        const contactDots = document.querySelectorAll(".contact-dot");
+
+        function updateContactSlidePosition() {
+            contactTrack.style.transform = `translateX(-${contactCurrentIndex * 100}%)`;
+            contactDots.forEach((dot, index) => {
+                dot.classList.toggle("active", index === contactCurrentIndex);
+            });
+        }
+
+        function contactGoToSlide(index) {
+            contactCurrentIndex = index;
+            updateContactSlidePosition();
+        }
+
+        contactPrevBtn.addEventListener("click", () => {
+            contactCurrentIndex = (contactCurrentIndex === 0) ? contactTotalSlides - 1 : contactCurrentIndex - 1;
+            updateContactSlidePosition();
+        });
+
+        contactNextBtn.addEventListener("click", () => {
+            contactCurrentIndex = (contactCurrentIndex === contactTotalSlides - 1) ? 0 : contactCurrentIndex + 1;
+            updateContactSlidePosition();
+        });
+
+        // 윈도우 리사이즈 시 위치 재조정
+        window.addEventListener("resize", updateContactSlidePosition);
+
+        // 모바일 터치 스와이프 지원
+        let contactStartX = 0;
+        let contactEndX = 0;
+        const minSwipeDistance = 50;
+
+        contactTrack.addEventListener("touchstart", (e) => {
+            contactStartX = e.touches[0].clientX;
+        }, { passive: true });
+
+        contactTrack.addEventListener("touchend", (e) => {
+            contactEndX = e.changedTouches[0].clientX;
+            const diffX = contactStartX - contactEndX;
+            if (Math.abs(diffX) > minSwipeDistance) {
+                if (diffX > 0) {
+                    contactCurrentIndex = (contactCurrentIndex === contactTotalSlides - 1) ? 0 : contactCurrentIndex + 1;
+                } else {
+                    contactCurrentIndex = (contactCurrentIndex === 0) ? contactTotalSlides - 1 : contactCurrentIndex - 1;
+                }
+                updateContactSlidePosition();
+            }
+        }, { passive: true });
+    }
 });
