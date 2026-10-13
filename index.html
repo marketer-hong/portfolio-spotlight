@@ -18,6 +18,9 @@
     <meta name="robots" content="index, follow">
     
     <link rel="canonical" href="https://marketerhong.xyz/">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Marketer Hong*3">
@@ -60,7 +63,10 @@
         
         <!-- 가로 폭에 맞춘 슬림형 이미지 배너 영역 -->
         <div class="hero-banner-image-container">
-            <img src="images/1.png" alt="Hero Main Banner Illustration">
+            <picture>
+            <source media="(max-width: 768px)" srcset="images/1_banner_hero_mo.jpg">
+            <img src="images/1_banner_hero.jpg" alt="Hero Main Banner Illustration (1200*400)">
+            </picture>
         </div>
     </section>
 
@@ -96,7 +102,7 @@
                                 <div class="story-card-body">
                                     <div class="story-card-img-col">
                                         <div class="img-placeholder">
-                                            <span>Image Area 01</span>
+                                            <img src="images/2-1_banner_story.jpg" alt="Image Area 01 (800*700)">
                                         </div>
                                     </div>
                                     <div class="story-card-text-col">
@@ -112,7 +118,7 @@
                                 <div class="story-card-body">
                                     <div class="story-card-img-col">
                                         <div class="img-placeholder">
-                                            <span>Image Area 02</span>
+                                            <img src="images/2-2_banner_story.jpg" alt="Image Area 01 (800*700)">
                                         </div>
                                     </div>
                                     <div class="story-card-text-col">
@@ -128,7 +134,7 @@
                                 <div class="story-card-body">
                                     <div class="story-card-img-col">
                                         <div class="img-placeholder">
-                                            <span>Image Area 03</span>
+                                            <img src="images/2-3_banner_story.jpg" alt="Image Area 01 (800*700)">
                                         </div>
                                     </div>
                                     <div class="story-card-text-col">
@@ -144,7 +150,7 @@
                                 <div class="story-card-body">
                                     <div class="story-card-img-col">
                                         <div class="img-placeholder">
-                                            <span>Image Area 04</span>
+                                            <img src="images/2-4_banner_story.jpg" alt="Image Area 01 (800*700)">
                                         </div>
                                     </div>
                                     <div class="story-card-text-col">
@@ -160,7 +166,7 @@
                                 <div class="story-card-body">
                                     <div class="story-card-img-col">
                                         <div class="img-placeholder">
-                                            <span>Image Area 05</span>
+                                            <img src="images/2-5_banner_story.jpg" alt="Image Area 01 (800*700)">
                                         </div>
                                     </div>
                                     <div class="story-card-text-col">
@@ -176,7 +182,7 @@
                                 <div class="story-card-body">
                                     <div class="story-card-img-col">
                                         <div class="img-placeholder">
-                                            <span>Image Area 06</span>
+                                            <img src="images/2-6_banner_story.jpg" alt="Image Area 01 (800*700)">
                                         </div>
                                     </div>
                                     <div class="story-card-text-col">
@@ -192,7 +198,7 @@
                                 <div class="story-card-body">
                                     <div class="story-card-img-col">
                                         <div class="img-placeholder">
-                                            <span>Image Area 07</span>
+                                            <img src="images/2-7_banner_story.jpg" alt="Image Area 01 (800*700)">
                                         </div>
                                     </div>
                                     <div class="story-card-text-col">
@@ -457,7 +463,7 @@
 
                 <div class="highlights-image-col">
                     <div class="expertise-highlights-image-box">
-                        <img src="images/4.png" alt="Experience Highlights Illustration">
+                        <img src="images/3_banner_highlight.jpg" alt="Experience Highlights Illustration">
                     </div>
                 </div>
             </div>
@@ -655,12 +661,44 @@
     <!-- Contact 섹션 -->
     <section id="contact" class="section fade-in">
         <h2>Let's Work Together</h2>
-        <p><strong>(~11/30) 신규 광고주 대상 <u>마크업 할인 프로모션</u> 진행 중!</strong><br>협업 제안이나 궁금하신 점이 있다면 언제든 연락해 주세요.</p>
-        <div class="contact-links">
-            <button type="button" class="btn outline" data-tally-open="b5P9q1" data-tally-layout="modal" data-tally-width="600">간편 접수</button>
-            <a href="https://open.kakao.com/me/marketerhong" target="_blank" rel="noopener noreferrer" class="btn outline">카카오톡 문의</a>
-            <a href="mailto:musseolchin@gmail.com" class="btn outline">이메일 문의</a>
-            <button type="button" id="copy-email-btn" class="btn outline">이메일 주소 복사</button>
+        <div class="contact-container">
+            <div class="contact-text-col">
+                <div class="contact-copy">
+                    <p><strong>(~11/30) 신규 광고주 대상 <u>마크업 할인 프로모션</u> 진행 중!</strong><br>협업 제안이나 궁금하신 점이 있다면 언제든 연락해 주세요.</p>
+                    <div class="contact-links">
+                        <button type="button" class="btn outline" data-tally-open="b5P9q1" data-tally-layout="modal" data-tally-width="600">간편 접수</button>
+                        <a href="https://open.kakao.com/me/marketerhong" target="_blank" rel="noopener noreferrer" class="btn outline">카카오톡 문의</a>
+                        <a href="mailto:musseolchin@gmail.com" class="btn outline">이메일 문의</a>
+                        <button type="button" id="copy-email-btn" class="btn outline">이메일 주소 복사</button>
+                    </div>
+                </div>
+            </div>
+            <!--
+            <div class="contact-image-col">
+                <div class="contact-carousel-wrapper">
+                    <button class="carousel-btn contact-prev-btn" aria-label="Previous Slide">〈</button>
+                    <button class="carousel-btn contact-next-btn" aria-label="Next Slide">〉</button>
+                    <div class="contact-carousel-track-container">
+                        <div class="contact-carousel-track">
+                            
+                            <div class="contact-slide">
+                                <div class="contact-banner-image-box">
+                                    <img src="images/4-1_banner_contact.jpg" alt="Contact Banner 1">
+                                </div>
+                            </div>
+                            
+                            <div class="contact-slide">
+                                <div class="contact-banner-image-box">
+                                    <img src="images/4-2_banner_contact.jpg" alt="Contact Banner 2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-carousel-dots"></div>
+                </div>
+            </div>
+            -->
         </div>
     </section>
 
